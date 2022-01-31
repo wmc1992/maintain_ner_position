@@ -51,7 +51,7 @@ entity_list = [(3, 6, "人名", "欧阳锋"), (3, 5, "复姓", "欧阳")]  # 支
 关于**旧实体的扩展**：如下面的例子所示，"招商银行"是一个实体，如果在文本的索引 `3` 位置插入新文本："中国"，由于新插入的文本与实体"招商银行"紧邻，那么实体"招商银行"可以保持不变，也扩展为"中国招商银行"。调用函数 `insert_xxx` 时不会对旧实体做扩展，调用函数 `insert_xxx_extend_entity` 时会对旧实体做扩展。
 
 ```python
-from maintain_ner_position import insert_sub_content, insert_sub_content_extend_entity
+from maintain_ner_position import insert_content, insert_content_extend_entity
 
 content = "小明去招商银行。"
 entity_list = [
@@ -60,10 +60,10 @@ entity_list = [
 ]
 
 print("不扩展实体：")
-print(insert_sub_content(content, deepcopy(entity_list), 3, "中国"))
+print(insert_content(content, deepcopy(entity_list), 3, "中国"))
 
 print("\n扩展实体：")
-print(insert_sub_content_extend_entity(content, deepcopy(entity_list), 3, "中国"))
+print(insert_content_extend_entity(content, deepcopy(entity_list), 3, "中国"))
 
 print("\n插入的文本作为一个新实体，旧实体不做扩展：")
 print(insert_entity(content, deepcopy(entity_list), 3, "中国", insert_type="国家"))

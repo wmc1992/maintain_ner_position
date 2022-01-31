@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from maintain_ner_position import insert_sub_content, insert_sub_content_extend_entity, \
+from maintain_ner_position import insert_content, insert_content_extend_entity, \
     insert_entity, insert_entity_extend_entity, delete_sub_content, delete_entity_with_idx
 
 
@@ -8,20 +8,20 @@ def test_insert_sub_content():
     content = "小明去招商银行。"
     entity_list = [(3, 7, "机构", "招商银行"), (3, 5, "品牌", "招商")]  # 支持重叠实体
     for i in range(len(content) + 1):  # 遍历所有情况测试
-        print("insert_idx", i, insert_sub_content(content, deepcopy(entity_list), i, "hello world"))
+        print("insert_idx", i, insert_content(content, deepcopy(entity_list), i, "hello world"))
 
 
 def test_insert_sub_content_extend_entity():
     content = "小明去招商银行。"
     entity_list = [(3, 7, "机构", "招商银行"), (3, 5, "品牌", "招商")]  # 支持重叠实体
     for i in range(len(content) + 1):  # 遍历所有情况测试
-        print("insert_idx", i, insert_sub_content_extend_entity(content, deepcopy(entity_list), i, "hello world"))
+        print("insert_idx", i, insert_content_extend_entity(content, deepcopy(entity_list), i, "hello world"))
 
 
 def test_insert_entity():
     content = "小明去招商银行。"
     entity_list = [(3, 7, "机构", "招商银行"), (3, 5, "品牌", "招商")]  # 支持重叠实体
-    content, entity_list = insert_sub_content(content, entity_list, len(content) - 1, "对面的")
+    content, entity_list = insert_content(content, entity_list, len(content) - 1, "对面的")
     content, entity_list = insert_entity(content, entity_list, len(content) - 1, "人民医院", insert_type="机构")
     print(content, entity_list)
 

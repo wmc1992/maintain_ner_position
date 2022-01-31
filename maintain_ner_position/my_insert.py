@@ -23,7 +23,7 @@ def insert_entity(content, entity_list, insert_idx, insert_content, insert_type)
     :return:
     """
     entity_list, entity_object_type = convert_entity_object_type(entity_list)
-    content, entity_list = insert_sub_content(content, entity_list, insert_idx, insert_content)
+    content, entity_list = insert_content(content, entity_list, insert_idx, insert_content)
 
     entity_list.append({
         "type": insert_type,
@@ -35,7 +35,7 @@ def insert_entity(content, entity_list, insert_idx, insert_content, insert_type)
     return content, entity_list
 
 
-def insert_sub_content(content, entity_list, insert_idx, insert_content):
+def insert_content(content, entity_list, insert_idx, insert_content):
     """
     插入一段文本，并维持实体列表中所有的索引值正常；若新插入的文本刚好处于某个实体的边界，新插入的文本不
     会作为实体，原实体保持不变。
@@ -95,7 +95,7 @@ def insert_entity_extend_entity(content, entity_list, insert_idx, insert_content
     :return:
     """
     entity_list, entity_object_type = convert_entity_object_type(entity_list)
-    content, entity_list = insert_sub_content_extend_entity(content, entity_list, insert_idx, insert_content)
+    content, entity_list = insert_content_extend_entity(content, entity_list, insert_idx, insert_content)
 
     entity_list.append({
         "type": insert_type,
@@ -107,7 +107,7 @@ def insert_entity_extend_entity(content, entity_list, insert_idx, insert_content
     return content, entity_list
 
 
-def insert_sub_content_extend_entity(content, entity_list, insert_idx, insert_content):
+def insert_content_extend_entity(content, entity_list, insert_idx, insert_content):
     """
     插入一段文本，并维持实体列表中所有的索引值正常；若新插入的文本刚好处于某个实体的边界，会扩展该实体的
     边界，将新插入的文本也作为实体的一部分。
