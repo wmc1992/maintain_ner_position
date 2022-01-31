@@ -17,7 +17,7 @@ def my_print(content, entity_list):
     print()
 
 
-def test_insert_sub_content():
+def test_insert_content():
     content = "小明去招商银行。"
     entity_list = [
         {"type": "机构", "start": 3, "end": 7, "value": "招商银行"},
@@ -28,7 +28,7 @@ def test_insert_sub_content():
         print("insert_idx", i, insert_content(content, deepcopy(entity_list), i, "hello world"))
 
 
-def test_insert_sub_content_extend_entity():
+def test_insert_content_extend_entity():
     content = "小明去招商银行。"
     entity_list = [
         {"type": "机构", "start": 3, "end": 7, "value": "招商银行"},
@@ -74,7 +74,7 @@ def test_compare_insert_entity():
     my_print(*insert_entity_extend_entity(content, deepcopy(entity_list), 3, "中国", insert_type="国家"))
 
 
-def test_delete_sub_content():
+def test_delete_content():
     content = "小明去欧阳锋家。"
     entity_list = [
         {"type": "人名", "start": 3, "end": 6, "value": "欧阳锋"},
@@ -111,11 +111,11 @@ def test_compare_delete():
 
 
 if __name__ == '__main__':
-    # test_insert_sub_content()
-    # test_insert_sub_content_extend_entity()
-    # test_insert_entity()
-    # test_insert_entity_extend_entity()
-    # test_compare_insert_entity()
-    # test_delete_sub_content()
-    # test_delete_entity_with_idx()
+    test_insert_content()
+    test_insert_content_extend_entity()
+    test_insert_entity()
+    test_insert_entity_extend_entity()
+    test_compare_insert_entity()
+    test_delete_content()
+    test_delete_entity_with_idx()
     test_compare_delete()

@@ -112,10 +112,10 @@ entity_list = [
 ]
 
 print("删除文本：\n",
-      delete_sub_content(content, deepcopy(entity_list), start=6, end=7, keep_sub_entity=True))
+      delete_content(content, deepcopy(entity_list), start=6, end=7, keep_sub_entity=True))
 
 print("删除文本，丢弃所有被删除了一部分的实体：\n",
-      delete_sub_content(content, deepcopy(entity_list), start=5, end=7, keep_sub_entity=False))
+      delete_content(content, deepcopy(entity_list), start=5, end=7, keep_sub_entity=False))
 
 print("删除指定实体对应的文本：\n",
       delete_entity_with_idx(content, deepcopy(entity_list), entity_idx=1, keep_sub_entity=True))

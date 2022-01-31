@@ -4,14 +4,14 @@ from maintain_ner_position import insert_content, insert_content_extend_entity, 
     insert_entity, insert_entity_extend_entity, delete_sub_content, delete_entity_with_idx
 
 
-def test_insert_sub_content():
+def test_insert_content():
     content = "小明去招商银行。"
     entity_list = [(3, 7, "机构", "招商银行"), (3, 5, "品牌", "招商")]  # 支持重叠实体
     for i in range(len(content) + 1):  # 遍历所有情况测试
         print("insert_idx", i, insert_content(content, deepcopy(entity_list), i, "hello world"))
 
 
-def test_insert_sub_content_extend_entity():
+def test_insert_content_extend_entity():
     content = "小明去招商银行。"
     entity_list = [(3, 7, "机构", "招商银行"), (3, 5, "品牌", "招商")]  # 支持重叠实体
     for i in range(len(content) + 1):  # 遍历所有情况测试
@@ -45,7 +45,7 @@ def test_compare_insert_entity():
     print(insert_entity_extend_entity(content, deepcopy(entity_list), 3, "中国", insert_type="国家"))
 
 
-def test_delete_sub_content():
+def test_delete_content():
     content = "小明去欧阳锋家。"
     entity_list = [(3, 6, "人名", "欧阳锋"), (3, 5, "复姓", "欧阳")]  # 支持重叠实体
 
@@ -73,11 +73,11 @@ def test_compare_delete():
 
 
 if __name__ == '__main__':
-    # test_insert_sub_content()
-    # test_insert_sub_content_extend_entity()
-    # test_insert_entity()
-    # test_insert_entity_extend_entity()
-    # test_compare_insert_entity()
-    # test_delete_sub_content()
-    # test_delete_entity_with_idx()
+    test_insert_content()
+    test_insert_content_extend_entity()
+    test_insert_entity()
+    test_insert_entity_extend_entity()
+    test_compare_insert_entity()
+    test_delete_content()
+    test_delete_entity_with_idx()
     test_compare_delete()
