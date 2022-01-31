@@ -73,11 +73,11 @@ def test_compare_delete():
 
 
 if __name__ == '__main__':
-    test_insert_content()
-    test_insert_content_extend_entity()
-    test_insert_entity()
-    test_insert_entity_extend_entity()
-    test_compare_insert_entity()
-    test_delete_content()
-    test_delete_entity_with_idx()
+    # test_insert_content()
+    # test_insert_content_extend_entity()
+    # test_insert_entity()
+    # test_insert_entity_extend_entity()
+    # test_compare_insert_entity()
+    # test_delete_content()
+    # test_delete_entity_with_idx()
     test_compare_delete()
