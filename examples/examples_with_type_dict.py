@@ -85,6 +85,9 @@ def test_delete_content():
         for j in range(i + 1, len(content) + 1, 1):
             print("start", i, "end", j, delete_sub_content(content, deepcopy(entity_list), start=i, end=j))
 
+    # 待删除待片段起止索引相同
+    print("start", 3, "end", 3, delete_sub_content(content, deepcopy(entity_list), start=3, end=3))
+
 
 def test_delete_entity_with_idx():
     content = "小明去欧阳锋家。"
