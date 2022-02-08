@@ -15,6 +15,9 @@ def delete_sub_content(content, entity_list, start, end, keep_sub_entity=True):
     :param keep_sub_entity: 是否保留被删除了一部分的实体，默认值为True
     :return:
     """
+    if start == end:
+        return content, entity_list
+
     entity_list, entity_object_type = convert_entity_object_type(entity_list)
     check_entity_position(content, entity_list)
     if not start < end:

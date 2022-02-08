@@ -8,7 +8,7 @@ install_requires = [
 
 setuptools.setup(
     name="maintain_ner_position",
-    version="0.0.1",
+    version="0.0.2",
     license="MIT",
     description="本项目提供几个简单的对原始文本做增删改的函数，同时能够维护其实体列表中的各索引同步修改。",
     long_description=long_description,
