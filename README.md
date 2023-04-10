@@ -98,7 +98,7 @@ print(insert_entity_extend_entity(content, deepcopy(entity_list), 3, "中国", i
 
 #### 删除文本
 
-删除文本的功能如下面的代码示例。可以调用函数 `delete_content` 直接删除一段指定的文本；也可以调用函数 `delete_entity_with_idx` 删除一个指定实体对应的文本。
+删除文本的功能如下面的代码示例。可以调用函数 `delete_sub_content` 直接删除一段指定的文本；也可以调用函数 `delete_entity_with_idx` 删除一个指定实体对应的文本。
 
 当一个实体被删除掉了一部分之后，该实体是否保留，可由参数 `keep_sub_entity` 控制。比如下例中的"招商银行"，被删除掉了最后的那个"行"字之后，如果想保留"招商银"作为实体，可将参数 `keep_sub_entity` 设置为 `True`，如果不想保留可将该参数设置为 `False`。
 
@@ -112,10 +112,10 @@ entity_list = [
 ]
 
 print("删除文本：\n",
-      delete_content(content, deepcopy(entity_list), start=6, end=7, keep_sub_entity=True))
+      delete_sub_content(content, deepcopy(entity_list), start=6, end=7, keep_sub_entity=True))
 
 print("删除文本，丢弃所有被删除了一部分的实体：\n",
-      delete_content(content, deepcopy(entity_list), start=5, end=7, keep_sub_entity=False))
+      delete_sub_content(content, deepcopy(entity_list), start=5, end=7, keep_sub_entity=False))
 
 print("删除指定实体对应的文本：\n",
       delete_entity_with_idx(content, deepcopy(entity_list), entity_idx=1, keep_sub_entity=True))
